@@ -27,10 +27,8 @@ namespace AdventOfCode
                 int fuel = 0;
                 for (int i = 0; i < crabs.Length; i++)
                 {
-                    for (int c = Math.Abs(crabs[i] - pos); c >= 1; c--)
-                    {
-                        fuel += c;
-                    }
+                    int c = Math.Abs(crabs[i] - pos);
+                    fuel += c * (c + 1) / 2;
                 }
                 if (fuel < minfuel)
                 {
