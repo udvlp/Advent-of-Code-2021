@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace AdventOfCode
@@ -9,6 +10,10 @@ namespace AdventOfCode
         {
             var sr = new StreamReader(@"..\..\input.txt");
             string l = sr.ReadLine();
+
+            var sw = new Stopwatch();
+            sw.Start();
+
             var p = l.Split(',');
             int[] crabs = new int[p.Length];
             int maxpos = int.MinValue;
@@ -30,11 +35,14 @@ namespace AdventOfCode
                     fuel += Math.Abs(crabs[i] - pos);
                 }
                 if (fuel < minfuel)
-                {
+                { 
                     minfuel = fuel;
                 }
             }
-            Console.WriteLine(minfuel);
+
+            sw.Stop();
+            Console.WriteLine("Result: " + minfuel);
+            Console.WriteLine("Elapsed: " + sw.Elapsed.ToString());
         }
     }
 }
