@@ -16,9 +16,4 @@
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="example.txt" />
-    <None Remove="input.txt" />
-  </ItemGroup>
-
 </Project>

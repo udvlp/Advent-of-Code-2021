@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace AdventOfCode
 {
@@ -11,7 +10,9 @@ namespace AdventOfCode
         {
             var sr = new StreamReader(@"..\..\input.txt");
             var dict = new Dictionary<string, string>();
+
             string polymer = sr.ReadLine();
+            
             while (!sr.EndOfStream)
             {
                 string line = sr.ReadLine();
@@ -34,6 +35,7 @@ namespace AdventOfCode
             }
 
             var count = new Dictionary<char, int>();
+            
             foreach (char c in polymer)
             {
                 count.TryAdd(c, 0);
@@ -46,10 +48,10 @@ namespace AdventOfCode
             foreach (int a in count.Values)
             {
                 if (a > max) max = a;
-                if (a < max) min = a;
+                if (a < min) min = a;
             }
 
-            Console.WriteLine($"Result: {max-min}");
+            Console.WriteLine($"Result: {max}-{min}={max-min}");
         }
     }
 }
